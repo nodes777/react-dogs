@@ -54,7 +54,7 @@ class DogList extends Component {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		return this.state.dogPicArr.map(dogObj => (
 			// key defines an id-like thing
-			<Col md="4">
+			<Col md="3">
 				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
 			</Col>
 		));
