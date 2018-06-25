@@ -32,7 +32,7 @@ class DogList extends Component {
 						dogName.charAt(0).toUpperCase() + dogName.slice(1);
 
 					let dogImgUrl = result.message;
-					console.log(dogName);
+
 					this.setState({
 						isLoaded: true,
 						dogPicArr: [
@@ -51,28 +51,23 @@ class DogList extends Component {
 	}
 
 	renderDogs() {
-		// Render all of the greetings by mapping over and creating a new HelloWorld Component for each one
+		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		return this.state.dogPicArr.map(dogObj => (
 			// key defines an id-like thing
-			<Col md={4}>
-				<Dog
-					key={dogObj.dogName}
-					imgSrc={dogObj.dogImgUrl}
-					dogName={dogObj.dogName}
-				/>
+			<Col md="4">
+				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
 			</Col>
 		));
 	}
 	render() {
-		const { error, isLoaded, dogPicSrc } = this.state;
+		const { error, isLoaded } = this.state;
 		if (error) {
 			return <div>Error: {error.message}</div>;
 		} else if (!isLoaded) {
-			return <div>Loading...</div>;
+			return <div>Loading those dogs...</div>;
 		} else {
-			//return <div className="DogList row">{this.renderDogs()}</div>;
 			return (
-				<Container>
+				<Container fluid>
 					<Row>{this.renderDogs()}</Row>
 				</Container>
 			);
