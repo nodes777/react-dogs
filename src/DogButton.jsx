@@ -5,7 +5,7 @@ class DogButton extends Component {
 	render() {
 		return (
 			<div>
-				<Button>Button</Button>
+				<Button> I like this Dog</Button>
 			</div>
 		);
 	}

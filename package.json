@@ -6,9 +6,11 @@
     "bootstrap": "^4.1.1",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
+    "react-bottom-scroll-listener": "^1.2.0",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
-    "reactstrap": "^6.1.0"
+    "reactstrap": "^6.1.0",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "react-scripts start",

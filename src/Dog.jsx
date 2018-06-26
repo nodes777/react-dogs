@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import DogButton from "./DogButton";
 import "./Dog.css";
-import {
-	Card,
-	CardImg,
-	CardText,
-	CardBody,
-	CardTitle,
-	CardSubtitle,
-	Button
-} from "reactstrap";
+import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
 class Dog extends Component {
 	render() {
@@ -24,7 +16,6 @@ class Dog extends Component {
 					/>
 					<CardBody>
 						<CardTitle>{this.props.dogName}</CardTitle>
-						<CardSubtitle>Card subtitle</CardSubtitle>
 						<CardText>This is a great dog</CardText>
 						<DogButton />
 					</CardBody>

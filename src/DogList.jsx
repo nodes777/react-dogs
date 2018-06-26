@@ -2,10 +2,20 @@ import React, { Component } from "react";
 import "./DogList.css";
 import Dog from "./Dog.jsx";
 import { Container, Row, Col } from "reactstrap";
+import getDogs from "./getDogs";
+import BottomScrollListener from "react-bottom-scroll-listener";
+import shortid from "shortid";
 
 class DogList extends Component {
 	constructor(props) {
 		super(props);
+		this.getDogs = getDogs.bind(this);
+		this.getBatchOfDogs = function() {
+			let numOfDogs = 12;
+			for (let i = 0; i < numOfDogs; i++) {
+				this.getDogs();
+			}
+		};
 		this.state = {
 			error: null,
 			isLoaded: false,
@@ -14,47 +24,13 @@ class DogList extends Component {
 	}
 
 	componentDidMount() {
-		let numOfInitialDogs = 12;
-		for (let i = 0; i < numOfInitialDogs; i++) {
-			this.getStuff();
-		}
-	}
-
-	getStuff() {
-		fetch("https://dog.ceo/api/breeds/image/random")
-			.then(res => res.json())
-			.then(
-				result => {
-					// Get the name of the breed from the url
-					let dogName = result.message.match("breeds.(.*)/")[1];
-					//Uppercase the first letter
-					dogName =
-						dogName.charAt(0).toUpperCase() + dogName.slice(1);
-
-					let dogImgUrl = result.message;
-
-					this.setState({
-						isLoaded: true,
-						dogPicArr: [
-							...this.state.dogPicArr,
-							{ dogImgUrl, dogName }
-						]
-					});
-				},
-				error => {
-					this.setState({
-						isLoaded: true,
-						error
-					});
-				}
-			);
+		this.getBatchOfDogs();
 	}
 
 	renderDogs() {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
-		return this.state.dogPicArr.map(dogObj => (
-			// key defines an id-like thing
-			<Col md="3">
+		return this.state.dogPicArr.map((dogObj, index) => (
+			<Col key={shortid.generate()} md="3">
 				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
 			</Col>
 		));
@@ -68,7 +44,12 @@ class DogList extends Component {
 		} else {
 			return (
 				<Container fluid>
-					<Row>{this.renderDogs()}</Row>
+					<Row>
+						<BottomScrollListener
+							onBottom={this.getBatchOfDogs.bind(this)}
+						/>
+						{this.renderDogs()}
+					</Row>
 				</Container>
 			);
 		}
