@@ -1,4 +1,3 @@
-//const dogWrapperBecauseArrowFuncsCantBeBound = {
 function getDogs() {
 	fetch("https://dog.ceo/api/breeds/image/random")
 		.then(res => res.json())
@@ -11,19 +10,22 @@ function getDogs() {
 
 				let dogImgUrl = result.message;
 
-				this.setState({
-					isLoaded: true,
-					dogPicArr: [...this.state.dogPicArr, { dogImgUrl, dogName }]
-				});
+				return { dogImgUrl, dogName };
+
+				// this.setState({
+				// 	isLoaded: true,
+				// 	dogPicArr: [...this.state.dogPicArr, { dogImgUrl, dogName }]
+				// });
 			},
 			error => {
-				this.setState({
-					isLoaded: true,
-					error
-				});
+				return { error };
+				// this.setState({
+				// 	isLoaded: true,
+				// 	error
+				// });
 			}
 		);
 }
 //}
 
-export default getDogs; //dogWrapperBecauseArrowFuncsCantBeBound;
+export default getDogs;

@@ -5,17 +5,13 @@ import { Container, Row, Col } from "reactstrap";
 import getDogs from "./getDogs";
 import BottomScrollListener from "react-bottom-scroll-listener";
 import shortid from "shortid";
+import getBatchOfDogs from "./getBatchOfDogs";
 
 class DogList extends Component {
 	constructor(props) {
 		super(props);
 		this.getDogs = getDogs.bind(this);
-		this.getBatchOfDogs = function() {
-			let numOfDogs = 12;
-			for (let i = 0; i < numOfDogs; i++) {
-				this.getDogs();
-			}
-		};
+		this.getBatchOfDogs = getBatchOfDogs.bind(this);
 		this.state = {
 			error: null,
 			isLoaded: false,
@@ -47,6 +43,7 @@ class DogList extends Component {
 					<Row>
 						<BottomScrollListener
 							onBottom={this.getBatchOfDogs.bind(this)}
+							debounce={300}
 						/>
 						{this.renderDogs()}
 					</Row>
