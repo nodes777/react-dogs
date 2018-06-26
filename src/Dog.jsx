@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import DogButton from "./DogButton";
 import "./Dog.css";
 import {
 	Card,
@@ -25,7 +26,7 @@ class Dog extends Component {
 						<CardTitle>{this.props.dogName}</CardTitle>
 						<CardSubtitle>Card subtitle</CardSubtitle>
 						<CardText>This is a great dog</CardText>
-						<Button>Button</Button>
+						<DogButton />
 					</CardBody>
 				</Card>
 			</div>
