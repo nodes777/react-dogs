@@ -3,7 +3,7 @@ function getBatchOfDogs() {
 	let urls = [];
 
 	// There's gotta be a better way to do this...
-	for (var i = amountOfDogs; i >= 0; i--) {
+	for (var i = amountOfDogs - 1; i >= 0; i--) {
 		urls.push("https://dog.ceo/api/breeds/image/random");
 	}
 	// map every url to the promise fetch

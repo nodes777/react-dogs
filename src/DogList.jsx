@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import "./DogList.css";
-import Dog from "./Dog.jsx";
 import { Container, Row, Col } from "reactstrap";
-import getDogs from "./getDogs";
+
 import BottomScrollListener from "react-bottom-scroll-listener";
 import shortid from "shortid";
 import getBatchOfDogs from "./getBatchOfDogs";
+import getDogs from "./getDogs";
+import Dog from "./Dog.jsx";
+
+import "./DogList.css";
 
 class DogList extends Component {
 	constructor(props) {
@@ -41,9 +43,11 @@ class DogList extends Component {
 			return (
 				<Container fluid>
 					<Row>
+						{/*// This should go within render dogs?
+						so a new BottomScrollListener is created at the end of a new row?*/}
 						<BottomScrollListener
 							onBottom={this.getBatchOfDogs.bind(this)}
-							debounce={300}
+							offset={800}
 						/>
 						{this.renderDogs()}
 					</Row>

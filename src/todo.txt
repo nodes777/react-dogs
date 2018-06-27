@@ -1,0 +1,4 @@
+TODO:
+Programmatic alt text for breed
+Modal pop up
+Wikipedia text by breed
