@@ -30,7 +30,9 @@ class DogList extends Component {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		return this.state.dogPicArr.map((dogObj, index) => (
 			<Col key={shortid.generate()} md="3">
-				<div className="fill" />
+				<Row>
+					<div className="fill" />
+				</Row>
 				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
 			</Col>
 		));
