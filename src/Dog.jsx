@@ -6,7 +6,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 class Dog extends Component {
 	render() {
 		return (
-			<div>
+			<div className="onTop">
 				<Card>
 					<CardImg
 						top

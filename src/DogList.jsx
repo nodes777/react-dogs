@@ -8,6 +8,7 @@ import getDogs from "./getDogs";
 import Dog from "./Dog.jsx";
 
 import "./DogList.css";
+import "./Dog.css";
 
 class DogList extends Component {
 	constructor(props) {
@@ -29,6 +30,7 @@ class DogList extends Component {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		return this.state.dogPicArr.map((dogObj, index) => (
 			<Col key={shortid.generate()} md="3">
+				<div className="fill" />
 				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
 			</Col>
 		));

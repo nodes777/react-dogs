@@ -2,3 +2,4 @@ TODO:
 Programmatic alt text for breed
 Modal pop up
 Wikipedia text by breed
+Check to see if an image has been loaded before. Ensure that all dog pics are unique
