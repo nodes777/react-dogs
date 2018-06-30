@@ -37,9 +37,10 @@ class DogList extends Component {
 	}
 	renderDogs() {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
+		//using shortid.generate() for key causes a whole rerender
 		return this.state.dogPicArr.map((dogObj, index) => (
 			<DogCard
-				key={shortid.generate()}
+				key={index}
 				id={index}
 				imgSrc={dogObj.dogImgUrl}
 				dogName={dogObj.dogName}
