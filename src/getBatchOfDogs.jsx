@@ -24,8 +24,9 @@ function getBatchOfDogs() {
 				dogName = dogName.charAt(0).toUpperCase() + dogName.slice(1);
 
 				let dogImgUrl = result.message;
+				let condition = false;
 
-				arr.push({ dogImgUrl, dogName });
+				arr.push({ dogImgUrl, dogName, condition });
 			});
 			return arr;
 		})

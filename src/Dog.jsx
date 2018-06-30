@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import DogButton from "./DogButton";
 import "./Dog.css";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
-class Dog extends Component {
+class Dog extends PureComponent {
 	render() {
 		return (
 			<div className="onTop">
@@ -17,7 +17,10 @@ class Dog extends Component {
 					<CardBody>
 						<CardTitle>{this.props.dogName}</CardTitle>
 						<CardText>This is a great dog</CardText>
-						<DogButton />
+						<DogButton
+							id={this.props.id}
+							buttonClick={this.props.buttonClick}
+						/>
 					</CardBody>
 				</Card>
 			</div>

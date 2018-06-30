@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Button } from "reactstrap";
 
-class DogButton extends Component {
+class DogButton extends PureComponent {
 	render() {
+		//onClick={() => this.props.removePerson(id)}
 		return (
 			<div>
-				<Button> I like this Dog</Button>
+				<Button onClick={() => this.props.buttonClick(this.props.id)}>
+					I like this Dog
+				</Button>
 			</div>
 		);
 	}

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 import BottomScrollListener from "react-bottom-scroll-listener";
 import shortid from "shortid";
 import getBatchOfDogs from "./getBatchOfDogs";
 import getDogs from "./getDogs";
-import Dog from "./Dog.jsx";
+import DogCard from "./DogCard.jsx";
 
 import "./DogList.css";
 import "./Dog.css";
@@ -20,21 +20,32 @@ class DogList extends Component {
 			isLoaded: false,
 			dogPicArr: []
 		};
+		this.likeDog = this.likeDog.bind(this);
 	}
-
 	componentDidMount() {
 		this.getBatchOfDogs();
 	}
 
+	likeDog(id) {
+		console.log("dogLiked: " + id);
+		// Make a copy of state
+		let newState = Object.assign({}, this.state);
+		// Change the specific property
+		newState.dogPicArr[id].condition = !this.state.dogPicArr[id].condition;
+		// Set the state again
+		this.setState(newState);
+	}
 	renderDogs() {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		return this.state.dogPicArr.map((dogObj, index) => (
-			<Col key={shortid.generate()} md="3">
-				<Row>
-					<div className="fill" />
-				</Row>
-				<Dog imgSrc={dogObj.dogImgUrl} dogName={dogObj.dogName} />
-			</Col>
+			<DogCard
+				key={shortid.generate()}
+				id={index}
+				imgSrc={dogObj.dogImgUrl}
+				dogName={dogObj.dogName}
+				condition={dogObj.condition}
+				buttonClick={this.likeDog}
+			/>
 		));
 	}
 	render() {
@@ -51,7 +62,7 @@ class DogList extends Component {
 						so a new BottomScrollListener is created at the end of a new row?*/}
 						<BottomScrollListener
 							onBottom={this.getBatchOfDogs.bind(this)}
-							offset={800}
+							offset={400}
 						/>
 						{this.renderDogs()}
 					</Row>
