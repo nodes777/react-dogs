@@ -3,11 +3,13 @@ import { Button } from "reactstrap";
 
 class DogButton extends PureComponent {
 	render() {
-		//onClick={() => this.props.removePerson(id)}
 		return (
 			<div>
-				<Button onClick={() => this.props.buttonClick(this.props.id)}>
-					I like this Dog
+				<Button
+					aria-label={"Dog Liked: " + this.props.condition}
+					onClick={() => this.props.buttonClick(this.props.id)}
+				>
+					I Like This Dog
 				</Button>
 			</div>
 		);

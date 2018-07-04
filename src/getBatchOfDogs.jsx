@@ -23,6 +23,16 @@ function getBatchOfDogs() {
 				//Uppercase the first letter
 				dogName = dogName.charAt(0).toUpperCase() + dogName.slice(1);
 
+				// Upper case letter after a hyphen
+				if (/-/.test(dogName)) {
+					let i = dogName.match("-").index;
+					dogName =
+						dogName.substr(0, i) +
+						"-" +
+						dogName.charAt(i + 1).toUpperCase() +
+						dogName.substr(i + 2);
+				}
+
 				let dogImgUrl = result.message;
 				let condition = false;
 

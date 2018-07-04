@@ -10,11 +10,12 @@
 }
 
 .fill {
-	height: 100%;
-	width: 100%;
+	border-radius: 2%;
+	height: 98%;
+	width: 98%;
 	background-color: inherit;
 	position: absolute;
-	animation: mymove 1s;
+	animation: mymove 0.5s;
 	animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
 	animation-fill-mode: forwards;
 	z-index: -1;

@@ -18,6 +18,7 @@ class DogCard extends PureComponent {
 					imgSrc={imgSrc}
 					dogName={dogName}
 					buttonClick={buttonClick}
+					condition={condition}
 					id={id}
 				/>
 			</Col>

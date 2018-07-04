@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row } from "reactstrap";
 
 import BottomScrollListener from "react-bottom-scroll-listener";
-import shortid from "shortid";
+//import shortid from "shortid";
 import getBatchOfDogs from "./getBatchOfDogs";
 import getDogs from "./getDogs";
 import DogCard from "./DogCard.jsx";
