@@ -21,6 +21,7 @@ class Dog extends PureComponent {
 							id={this.props.id}
 							condition={this.props.condition}
 							buttonClick={this.props.buttonClick}
+							dogName={this.props.dogName}
 						/>
 					</CardBody>
 				</Card>

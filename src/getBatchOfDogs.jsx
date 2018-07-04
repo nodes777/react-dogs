@@ -1,5 +1,5 @@
 function getBatchOfDogs() {
-	let amountOfDogs = 12;
+	let amountOfDogs = 3;
 	let urls = [];
 
 	// There's gotta be a better way to do this...
@@ -27,10 +27,10 @@ function getBatchOfDogs() {
 				if (/-/.test(dogName)) {
 					let i = dogName.match("-").index;
 					dogName =
-						dogName.substr(0, i) +
-						"-" +
 						dogName.charAt(i + 1).toUpperCase() +
-						dogName.substr(i + 2);
+						dogName.substr(i + 2) +
+						"-" +
+						dogName.substr(0, i);
 				}
 
 				let dogImgUrl = result.message;

@@ -35,6 +35,7 @@ class DogList extends Component {
 		// Set the state again
 		this.setState(newState);
 	}
+
 	renderDogs() {
 		// Render all of the dogs by mapping over and creating a new Dog Component for each one
 		//using shortid.generate() for key causes a whole rerender
