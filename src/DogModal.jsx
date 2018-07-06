@@ -10,11 +10,15 @@ class DogModal extends React.Component {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.openModal = this.openModal.bind(this);
     this.getWikiText = getWikiText.bind(this);
   }
 
+  openModal(){
+      this.getWikiText(this.props.dogName);
+      this.toggle();
+  }
   toggle() {
-    this.getWikiText(this.props.dogName);
     this.setState({
       modal: !this.state.modal
     });
@@ -23,7 +27,7 @@ class DogModal extends React.Component {
   render() {
     return (
       <div>
-        <Button color="info" onClick={this.toggle}>
+        <Button color="info" onClick={this.openModal}>
           {this.props.buttonLabel}
         </Button>
         <Modal
@@ -32,7 +36,7 @@ class DogModal extends React.Component {
           className={this.props.className}
         >
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>{this.state.wikiText}test</ModalBody>
+          <ModalBody>{this.state.wikiText}</ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>
               Do Something
