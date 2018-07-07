@@ -21,26 +21,18 @@ function getWikiText(searchTerm) {
 			// let id = Object.keys(res.query.pages)[0];
 			// console.log(id);
 			// console.log(res.query.pages[id]);
-			let fact = ''
-			for(let i = 0; i<=res[2].length-1; i++){
-				if(res[2][i].indexOf("dog") >=0){
+			let fact = "";
+			for (let i = 0; i <= res[2].length - 1; i++) {
+				if (res[2][i].indexOf("dog") >= 0) {
 					fact = res[2][i];
-					console.log(fact)
+					console.log(fact);
+					break;
 				}
 			}
 			this.setState({
 				wikiText: fact
 			});
 			//return title;
-		})
-		.then(title => {
-			fetch(
-				`https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=revisions&rvprop=content&format=json&titles=${title}`
-			)
-				.then(res => res.json())
-				.then(res => {
-					console.log(res);
-				});
 		});
 }
 

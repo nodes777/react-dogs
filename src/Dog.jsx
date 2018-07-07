@@ -1,18 +1,17 @@
 import React, { PureComponent } from "react";
 import DogButton from "./DogButton";
 import "./Dog.css";
-import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import { Card, CardText, CardBody, CardTitle } from "reactstrap";
+import DogModal from "./DogModal";
 
 class Dog extends PureComponent {
 	render() {
 		return (
 			<div className="onTop">
 				<Card>
-					<CardImg
-						top
-						width="100%"
-						src={this.props.imgSrc}
-						alt={this.props.dogName}
+					<DogModal
+						dogName={this.props.dogName}
+						imgSrc={this.props.imgSrc}
 					/>
 					<CardBody>
 						<CardTitle>{this.props.dogName}</CardTitle>
@@ -22,6 +21,7 @@ class Dog extends PureComponent {
 							condition={this.props.condition}
 							buttonClick={this.props.buttonClick}
 							dogName={this.props.dogName}
+							imgSrc={this.props.imgSrc}
 						/>
 					</CardBody>
 				</Card>

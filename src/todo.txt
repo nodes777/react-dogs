@@ -1,4 +1,5 @@
 TODO:
-Modal pop up
-Wikipedia text by breed
+A11y Modal pop up
 Check to see if an image has been loaded before. Ensure that all dog pics are unique
+CSS particle effect?
+border for dog images to make them look more like a button

@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import { Button } from "reactstrap";
-import DogModal from "./DogModal";
 
 class DogButton extends PureComponent {
 	render() {
@@ -13,7 +12,6 @@ class DogButton extends PureComponent {
 				>
 					I Like This Dog
 				</Button>
-				<DogModal buttonLabel="Yay" dogName={this.props.dogName} />
 			</div>
 		);
 	}
