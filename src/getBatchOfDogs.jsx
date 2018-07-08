@@ -1,5 +1,5 @@
 function getBatchOfDogs() {
-	let amountOfDogs = 2;
+	let amountOfDogs = 12;
 	let urls = [];
 
 	// There's gotta be a better way to do this...

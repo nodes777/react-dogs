@@ -6,19 +6,18 @@
 }
 
 .dogImg:hover {
-	animation: bounce 0.2s;
+	animation: grow 0.2s;
 	animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
 	animation-fill-mode: forwards;
 }
 
 .dogImg:focus {
-	border-style: dotted;
-	animation: bounce 0.2s;
+	animation: grow 0.2s;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;
 }
 
-@keyframes bounce {
+@keyframes grow {
 	from {
 		transform: scale(1, 1); /* Standard syntax */
 	}

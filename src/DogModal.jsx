@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  CardImg
-} from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, CardImg } from "reactstrap";
 import getWikiText from "./getWikiText";
 import ModalHeaderT from "./ModalHeaderT";
 import "./dogImg.css";
@@ -21,7 +14,6 @@ class DogModal extends React.Component {
     };
 
     this.myRef = React.createRef();
-    this.imgRef = React.createRef();
 
     this.toggle = this.toggle.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -66,7 +58,6 @@ class DogModal extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
-    console.log(this.state.modal);
     if (this.state.modal === true) {
       document.getElementById(this.id).focus();
     }
