@@ -1,7 +1,7 @@
 TODO:
 A11y Modal pop up - can shift tab out of modal
 Check to see if an image has been loaded before. Ensure that all dog pics are unique
+Check for image resolution
 CSS particle effect?
 Better filter for get wiki text
-add attribution for Stanford dog set
-Add readme
+Add About section to the header

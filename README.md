@@ -8,3 +8,4 @@ A simple React app using the [Stanford Dog Set](https://dog.ceo/dog-api/).
 - [Reactstrap](https://reactstrap.github.io)
 - [Dog CEO API](https://dog.ceo/dog-api/)
 - [react-share](https://npmjs.com/package/react-share)
+- [Wikimedia API](https://mediawiki.org/wiki/API:Main_page)
