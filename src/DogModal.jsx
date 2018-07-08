@@ -8,6 +8,10 @@ import {
   CardImg
 } from "reactstrap";
 import getWikiText from "./getWikiText";
+import ModalHeaderT from "./ModalHeaderT";
+import "./dogImg.css";
+import { TwitterShareButton } from "react-share";
+import shortId from "shortid";
 
 class DogModal extends React.Component {
   constructor(props) {
@@ -17,21 +21,36 @@ class DogModal extends React.Component {
     };
 
     this.myRef = React.createRef();
+    this.imgRef = React.createRef();
 
     this.toggle = this.toggle.bind(this);
     this.openModal = this.openModal.bind(this);
     this.getWikiText = getWikiText.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.tabFocus = this.tabFocus.bind(this);
+    this.shiftTabFocus = this.shiftTabFocus.bind(this);
+
+    this.id = shortId.generate();
   }
+
   keyPress(e) {
     if (e.keyCode === 13) {
       this.openModal();
     }
   }
+
   tabFocus(e) {
     if (e.keyCode === 9) {
       console.log("Tabbed: ");
+      console.log(this.myRef);
+      e.preventDefault();
+      this.myRef.current.setFocus();
+    }
+  }
+
+  shiftTabFocus(e) {
+    if (e.shiftKey && e.keyCode === 9) {
+      console.log("Shift Tabbed: ");
       console.log(this.myRef);
       e.preventDefault();
       this.myRef.current.setFocus();
@@ -47,12 +66,18 @@ class DogModal extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+    console.log(this.state.modal);
+    if (this.state.modal === true) {
+      document.getElementById(this.id).focus();
+    }
   }
 
   render() {
     return (
       <div>
         <CardImg
+          id={this.id}
+          className="dogImg"
           tabIndex="0"
           onKeyDown={this.keyPress}
           onClick={this.openModal}
@@ -67,8 +92,9 @@ class DogModal extends React.Component {
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}
+          onKeyDown={this.shiftTabFocus}
         >
-          <ModalHeader toggle={this.toggle}>{this.props.dogName}</ModalHeader>
+          <ModalHeaderT toggle={this.toggle} dogName={this.props.dogName} />
           <ModalBody>
             <CardImg
               top
@@ -79,9 +105,16 @@ class DogModal extends React.Component {
             {this.state.wikiText}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Do Something
-            </Button>{" "}
+            <TwitterShareButton
+              children={
+                <span className="btn btn-primary" color="primary">
+                  Tweet This Good Boi
+                </span>
+              }
+              url={`http://jpg.party/${this.props.imgSrc}`}
+              hashtags={[this.props.dogName]}
+            />
+
             <Button
               color="secondary"
               onClick={this.toggle}

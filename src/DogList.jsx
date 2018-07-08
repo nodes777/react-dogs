@@ -24,6 +24,12 @@ class DogList extends Component {
 	}
 	componentDidMount() {
 		this.getBatchOfDogs();
+		setTimeout(
+			function() {
+				this.getBatchOfDogs();
+			}.bind(this),
+			1000
+		);
 	}
 
 	likeDog(id) {

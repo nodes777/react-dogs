@@ -1,5 +1,5 @@
 TODO:
-A11y Modal pop up
+A11y Modal pop up - can shift tab out of modal
 Check to see if an image has been loaded before. Ensure that all dog pics are unique
 CSS particle effect?
-border for dog images to make them look more like a button
+Better filter for get wiki text

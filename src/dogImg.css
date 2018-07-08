@@ -1,0 +1,28 @@
+.dogImg {
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	box-shadow: 2px 3px #777777;
+}
+
+.dogImg:hover {
+	animation: bounce 0.2s;
+	animation-timing-function: cubic-bezier(0.7, 0, 1, 1);
+	animation-fill-mode: forwards;
+}
+
+.dogImg:focus {
+	border-style: dotted;
+	animation: bounce 0.2s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+	from {
+		transform: scale(1, 1); /* Standard syntax */
+	}
+	to {
+		transform: scale(1.1, 1.1); /* Standard syntax */
+	}
+}
